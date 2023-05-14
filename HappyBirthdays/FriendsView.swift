@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  FriendsView.swift
 //  HappyBirthdays
 //
 //  Created by Kirill Kubarskiy on 2.05.23.

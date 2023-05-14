@@ -8,17 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		35B1F72B2A0182CC00C94021 /* HappyBirthdaysApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1F72A2A0182CC00C94021 /* HappyBirthdaysApp.swift */; };
-		35B1F72D2A0182CC00C94021 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1F72C2A0182CC00C94021 /* ContentView.swift */; };
+		35B1F72D2A0182CC00C94021 /* FriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1F72C2A0182CC00C94021 /* FriendsView.swift */; };
 		35B1F72F2A0182CE00C94021 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35B1F72E2A0182CE00C94021 /* Assets.xcassets */; };
 		35B1F7322A0182CE00C94021 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35B1F7312A0182CE00C94021 /* Preview Assets.xcassets */; };
+		35FAF5F72A1135060093D969 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FAF5F62A1135060093D969 /* DatabaseService.swift */; };
+		35FAF5FA2A1138150093D969 /* FriendDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 35FAF5F82A1138150093D969 /* FriendDB.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		35B1F7272A0182CC00C94021 /* HappyBirthdays.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HappyBirthdays.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35B1F72A2A0182CC00C94021 /* HappyBirthdaysApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HappyBirthdaysApp.swift; sourceTree = "<group>"; };
-		35B1F72C2A0182CC00C94021 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		35B1F72C2A0182CC00C94021 /* FriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsView.swift; sourceTree = "<group>"; };
 		35B1F72E2A0182CE00C94021 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35B1F7312A0182CE00C94021 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		35FAF5F62A1135060093D969 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
+		35FAF5F92A1138150093D969 /* FriendDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FriendDB.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +56,9 @@
 			isa = PBXGroup;
 			children = (
 				35B1F72A2A0182CC00C94021 /* HappyBirthdaysApp.swift */,
-				35B1F72C2A0182CC00C94021 /* ContentView.swift */,
+				35FAF5F62A1135060093D969 /* DatabaseService.swift */,
+				35FAF5F82A1138150093D969 /* FriendDB.xcdatamodeld */,
+				35B1F72C2A0182CC00C94021 /* FriendsView.swift */,
 				35B1F72E2A0182CE00C94021 /* Assets.xcassets */,
 				35B1F7302A0182CE00C94021 /* Preview Content */,
 			);
@@ -137,8 +143,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35B1F72D2A0182CC00C94021 /* ContentView.swift in Sources */,
+				35FAF5F72A1135060093D969 /* DatabaseService.swift in Sources */,
+				35B1F72D2A0182CC00C94021 /* FriendsView.swift in Sources */,
 				35B1F72B2A0182CC00C94021 /* HappyBirthdaysApp.swift in Sources */,
+				35FAF5FA2A1138150093D969 /* FriendDB.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,7 +203,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -249,7 +257,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -275,6 +283,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,6 +313,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -339,6 +349,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		35FAF5F82A1138150093D969 /* FriendDB.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				35FAF5F92A1138150093D969 /* FriendDB.xcdatamodel */,
+			);
+			currentVersion = 35FAF5F92A1138150093D969 /* FriendDB.xcdatamodel */;
+			path = FriendDB.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 35B1F71F2A0182CC00C94021 /* Project object */;
 }
