@@ -8,21 +8,31 @@
 
 /* Begin PBXBuildFile section */
 		35B1F72B2A0182CC00C94021 /* HappyBirthdaysApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1F72A2A0182CC00C94021 /* HappyBirthdaysApp.swift */; };
-		35B1F72D2A0182CC00C94021 /* FriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1F72C2A0182CC00C94021 /* FriendsView.swift */; };
 		35B1F72F2A0182CE00C94021 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35B1F72E2A0182CE00C94021 /* Assets.xcassets */; };
 		35B1F7322A0182CE00C94021 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35B1F7312A0182CE00C94021 /* Preview Assets.xcassets */; };
-		35FAF5F72A1135060093D969 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FAF5F62A1135060093D969 /* DatabaseService.swift */; };
 		35FAF5FA2A1138150093D969 /* FriendDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 35FAF5F82A1138150093D969 /* FriendDB.xcdatamodeld */; };
+		35FAF5FD2A11641C0093D969 /* FriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FAF5FC2A11641C0093D969 /* FriendsView.swift */; };
+		35FAF5FF2A11643B0093D969 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FAF5FE2A11643B0093D969 /* FriendCell.swift */; };
+		35FAF6022A1164640093D969 /* AddFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FAF6012A1164640093D969 /* AddFriendView.swift */; };
+		35FAF6042A1164A50093D969 /* CustomDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FAF6032A1164A50093D969 /* CustomDatePicker.swift */; };
+		35FAF6072A1164C80093D969 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FAF6062A1164C80093D969 /* Friend.swift */; };
+		35FAF6092A1164EA0093D969 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FAF6082A1164EA0093D969 /* ImagePicker.swift */; };
+		35FAF60C2A1165240093D969 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FAF60B2A1165240093D969 /* DatabaseService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		35B1F7272A0182CC00C94021 /* HappyBirthdays.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HappyBirthdays.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35B1F72A2A0182CC00C94021 /* HappyBirthdaysApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HappyBirthdaysApp.swift; sourceTree = "<group>"; };
-		35B1F72C2A0182CC00C94021 /* FriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsView.swift; sourceTree = "<group>"; };
 		35B1F72E2A0182CE00C94021 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35B1F7312A0182CE00C94021 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		35FAF5F62A1135060093D969 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		35FAF5F92A1138150093D969 /* FriendDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FriendDB.xcdatamodel; sourceTree = "<group>"; };
+		35FAF5FC2A11641C0093D969 /* FriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsView.swift; sourceTree = "<group>"; };
+		35FAF5FE2A11643B0093D969 /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
+		35FAF6012A1164640093D969 /* AddFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendView.swift; sourceTree = "<group>"; };
+		35FAF6032A1164A50093D969 /* CustomDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePicker.swift; sourceTree = "<group>"; };
+		35FAF6062A1164C80093D969 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		35FAF6082A1164EA0093D969 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		35FAF60B2A1165240093D969 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,10 +65,12 @@
 		35B1F7292A0182CC00C94021 /* HappyBirthdays */ = {
 			isa = PBXGroup;
 			children = (
+				35FAF60D2A1165440093D969 /* Components */,
+				35FAF60A2A11651A0093D969 /* Services */,
+				35FAF6052A1164BD0093D969 /* Model */,
+				35FAF6002A1164500093D969 /* AddFriend */,
+				35FAF5FB2A11640D0093D969 /* Friends */,
 				35B1F72A2A0182CC00C94021 /* HappyBirthdaysApp.swift */,
-				35FAF5F62A1135060093D969 /* DatabaseService.swift */,
-				35FAF5F82A1138150093D969 /* FriendDB.xcdatamodeld */,
-				35B1F72C2A0182CC00C94021 /* FriendsView.swift */,
 				35B1F72E2A0182CE00C94021 /* Assets.xcassets */,
 				35B1F7302A0182CE00C94021 /* Preview Content */,
 			);
@@ -71,6 +83,49 @@
 				35B1F7312A0182CE00C94021 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		35FAF5FB2A11640D0093D969 /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				35FAF5FC2A11641C0093D969 /* FriendsView.swift */,
+				35FAF5FE2A11643B0093D969 /* FriendCell.swift */,
+			);
+			path = Friends;
+			sourceTree = "<group>";
+		};
+		35FAF6002A1164500093D969 /* AddFriend */ = {
+			isa = PBXGroup;
+			children = (
+				35FAF6012A1164640093D969 /* AddFriendView.swift */,
+			);
+			path = AddFriend;
+			sourceTree = "<group>";
+		};
+		35FAF6052A1164BD0093D969 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				35FAF6062A1164C80093D969 /* Friend.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		35FAF60A2A11651A0093D969 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				35FAF5F82A1138150093D969 /* FriendDB.xcdatamodeld */,
+				35FAF60B2A1165240093D969 /* DatabaseService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		35FAF60D2A1165440093D969 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				35FAF6032A1164A50093D969 /* CustomDatePicker.swift */,
+				35FAF6082A1164EA0093D969 /* ImagePicker.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,8 +198,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35FAF5F72A1135060093D969 /* DatabaseService.swift in Sources */,
-				35B1F72D2A0182CC00C94021 /* FriendsView.swift in Sources */,
+				35FAF6042A1164A50093D969 /* CustomDatePicker.swift in Sources */,
+				35FAF5FD2A11641C0093D969 /* FriendsView.swift in Sources */,
+				35FAF5FF2A11643B0093D969 /* FriendCell.swift in Sources */,
+				35FAF6022A1164640093D969 /* AddFriendView.swift in Sources */,
+				35FAF6072A1164C80093D969 /* Friend.swift in Sources */,
+				35FAF60C2A1165240093D969 /* DatabaseService.swift in Sources */,
+				35FAF6092A1164EA0093D969 /* ImagePicker.swift in Sources */,
 				35B1F72B2A0182CC00C94021 /* HappyBirthdaysApp.swift in Sources */,
 				35FAF5FA2A1138150093D969 /* FriendDB.xcdatamodeld in Sources */,
 			);

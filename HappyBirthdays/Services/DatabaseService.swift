@@ -62,7 +62,7 @@ class DatabaseService {
                 let turns = data.value(forKey: "turns") as? Int ?? 0
                 let date = data.value(forKey: "date") as? Date ?? Date()
 
-                let friend = Friend(name: name, avatar: avatar, birthday: birthday, daysUntilBirthday: daysUntilBirthday, turns: turns, date: date)
+              let friend = Friend(id: id, name: name, avatar: avatar, birthday: birthday, daysUntilBirthday: daysUntilBirthday, turns: turns, date: date)
                 friends.append(friend)
             }
 
