@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct FriendCell: View {
+
   let friend: Friend
+  @State private var isEditFriendViewPresented = false
 
   var body: some View {
     HStack {
@@ -47,5 +49,6 @@ struct FriendCell: View {
     .padding()
     .background(Color.gray.opacity(0.2))
     .cornerRadius(10)
+
   }
 }

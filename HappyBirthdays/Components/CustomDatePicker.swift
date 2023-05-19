@@ -18,11 +18,13 @@ struct CustomDatePicker: View {
     VStack {
       DatePicker("", selection: $selectedDate, in: ...maximumDate, displayedComponents: .date) // Ограничение диапазона дат
         .datePickerStyle(GraphicalDatePickerStyle())
-        .frame(height: 300)
-        .padding()
-        .background(Color.white)
-        .cornerRadius(10)
-        .shadow(color: .gray, radius: 4, x: 0, y: 2)
+                .accentColor(.green) // Зеленый цвет для акцента
+                .frame(height: 300)
+                .padding()
+                .background(Color.white)
+                .cornerRadius(10)
+                .shadow(color: .gray, radius: 4, x: 0, y: 2)
+//                .colorMultiply(.green) // Зеленый цвет для всего DatePicker
     }
     .padding(.horizontal)
   }

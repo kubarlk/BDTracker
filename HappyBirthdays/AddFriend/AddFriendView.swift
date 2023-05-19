@@ -13,116 +13,152 @@ struct AddFriendView: View {
   @State private var name: String = ""
   @State private var selectedImage: UIImage? = UIImage(named: "1")
   @State private var selectedDate: Date = Date()
-
   @State private var daysUntilBirthday: Int = 0
   @State private var isShowingImagePicker = false
   @State private var isShowingDatePicker = false
+  @State private var isShowingAlert = false
+
 
   var body: some View {
-    VStack {
-      HStack {
-        ZStack(alignment: Alignment(horizontal: .trailing, vertical: .bottom)) {
-          Image(uiImage: selectedImage ?? UIImage(named: "1")!)
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .frame(width: 100, height: 100)
-            .clipShape(Circle())
-            .onTapGesture {
-              hideKeyboard()
-            }
+      ZStack {
+          VStack {
+              HStack {
+                  ZStack(alignment: Alignment(horizontal: .trailing, vertical: .bottom)) {
+                      Image(uiImage: selectedImage ?? UIImage(named: "1")!)
+                          .resizable()
+                          .aspectRatio(contentMode: .fit)
+                          .frame(width: 100, height: 100)
+                          .clipShape(Circle())
+                          .onTapGesture {
+                              hideKeyboard()
+                          }
 
-          Button {
-            self.isShowingImagePicker.toggle()
-          } label: {
-            ZStack {
-              Circle()
-                .frame(width: 36, height: 36)
-                .foregroundColor(.pink)
-                .overlay(RoundedRectangle(cornerRadius: 18)
-                  .stroke(Color.white, lineWidth: 2)
-                )
-              Image(systemName: "camera.fill")
-                .foregroundColor(.white)
+                      Button {
+                          self.isShowingImagePicker.toggle()
+                      } label: {
+                          ZStack {
+                              Circle()
+                                  .frame(width: 36, height: 36)
+                                  .foregroundColor(.green.opacity(0.8))
+                                  .overlay(RoundedRectangle(cornerRadius: 18)
+                                      .stroke(Color.green, lineWidth: 2)
+                                  )
+                              Image(systemName: "camera.fill")
+                                  .foregroundColor(.white)
+                          }
+                          .offset(x: 4, y: 4)
+                          .fullScreenCover(isPresented: $isShowingImagePicker) {
+                              ImagePicker(image: $selectedImage)
+                          }
+                      }
+                  }
+
+                  VStack(alignment: .leading) {
+                      TextField("Name", text: $name)
+                          .font(.title)
+                          .textFieldStyle(RoundedBorderTextFieldStyle())
+                          .padding()
+                          .onTapGesture {
+                              self.isShowingDatePicker = false
+                          }
+
+                      Divider()
+                          .padding(.horizontal)
+
+                      Text("Days Until Birthday: \(daysUntilBirthday)")
+                          .font(.headline)
+                          .padding(.horizontal)
+                          .onTapGesture {
+                              hideKeyboard()
+                          }
+                  }
+              }
+              .padding()
+
+              Divider()
+                  .padding(.horizontal)
+
+              HStack {
+                  Text(dateFormatter.string(from: selectedDate))
+                      .font(.title)
+
+                  Button(action: {
+                      isShowingDatePicker.toggle()
+                      hideKeyboard()
+                  }) {
+                      Image(systemName: "calendar")
+                          .resizable()
+                          .frame(width: 25, height: 25)
+                          .foregroundColor(.green)
+                          .padding()
+                  }
+                  .accentColor(.blue)
+              }
+              .padding()
+
+              ZStack {
+                  LottieView(lottieFile: "person")
+                      .padding()
+                      .onTapGesture {
+                          hideKeyboard()
+                      }
+
+                  if isShowingDatePicker {
+                      CustomDatePicker(selectedDate: $selectedDate, isShowing: $isShowingDatePicker)
+                          .transition(.slide)
+                  }
+              }
+
+              Button(action: {
+                  // Perform add friend action
+                  hideKeyboard()
+                  if name.isEmpty {
+                      // Show custom alert if any required field is not selected
+                      isShowingAlert = true
+                  } else {
+                      shouldUpdateFriends = true
+                      addFriend()
+                      presentationMode.wrappedValue.dismiss()
+                  }
+              }) {
+                  Text("Добавить друга")
+                      .font(.title)
+                      .padding()
+                      .background(Color.green)
+                      .foregroundColor(.white)
+                      .cornerRadius(10)
+              }
+              .onTapGesture {
+                  // Предотвращаем закрытие алерта при нажатии на кнопку
+                  hideKeyboard()
+              }
+              .padding()
+          }
+        if isShowingAlert {
+          Color.black.opacity(0.5)
+            .edgesIgnoringSafeArea(.all)
+            .onTapGesture {
+              // Do nothing when the overlay is tapped
             }
-            .offset(x: 4, y: 4)
-            .fullScreenCover(isPresented: $isShowingImagePicker) {
-              ImagePicker(image: $selectedImage)
+          GeometryReader { geometry in
+            withAnimation(.spring()) { // Apply the spring animation
+              CustomAlert(
+                isPresented: $isShowingAlert,
+                title: "Так не пойдет!",
+                message: "Введите имя"
+              )
+              .frame(width: min(geometry.size.width - 60, 300)) // Limit the maximum width of the alert
+              .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
             }
           }
-
         }
+   }
+   .ignoresSafeArea(.keyboard) // Игнорировать клавиатуру на всем экране
+   .onChange(of: selectedDate, perform: { date in
+       daysUntilBirthday = calculateDaysUntilBirthday(from: date)
+   })
+}
 
-        VStack(alignment: .leading) {
-          TextField("Name", text: $name)
-            .font(.title)
-            .textFieldStyle(RoundedBorderTextFieldStyle())
-            .padding()
-            .onTapGesture {
-              self.isShowingDatePicker = false
-            }
-
-          Divider()
-            .padding(.horizontal)
-
-          Text("Days Until Birthday: \(daysUntilBirthday)")
-            .font(.headline)
-            .padding(.horizontal)
-            .onTapGesture {
-              hideKeyboard()
-            }
-        }
-      }
-      .padding()
-
-      Divider()
-        .padding(.horizontal)
-
-      HStack {
-        Text(dateFormatter.string(from: selectedDate))
-          .font(.title)
-
-        Button(action: {
-          isShowingDatePicker.toggle()
-          hideKeyboard()
-        }) {
-          Image(systemName: "calendar")
-            .resizable()
-            .frame(width: 25, height: 25)
-            .padding()
-        }
-        .accentColor(.blue)
-      }
-      .padding()
-
-
-      if isShowingDatePicker {
-        CustomDatePicker(selectedDate: $selectedDate, isShowing: $isShowingDatePicker)
-          .transition(.slide)
-      }
-
-
-      Spacer()
-
-      Button(action: {
-        // Perform add friend action
-        hideKeyboard()
-        shouldUpdateFriends = true
-        addFriend()
-        presentationMode.wrappedValue.dismiss()
-      }) {
-        Text("Add Friend")
-          .font(.title)
-          .padding()
-          .background(Color.blue)
-          .foregroundColor(.white)
-          .cornerRadius(10)
-      }
-      .padding()
-    }
-    .onChange(of: selectedDate, perform: { date in
-      daysUntilBirthday = calculateDaysUntilBirthday(from: date)
-    })
-  }
 }
 
 
@@ -134,11 +170,17 @@ private extension AddFriendView {
     guard let imageData = selectedImage?.jpegData(compressionQuality: 1.0) else {
       return
     }
-    guard let age = calculateAge(from: selectedDate) else { return }
+
+    guard let age = calculateAge(from: selectedDate) else {
+      return
+    }
+
     let nextYear = Calendar.current.component(.year, from: Date()) + 1
     let id = UUID()
     print("В следующем году в \(nextYear) году вам будет \(age) год(а)")
+
     let friend = Friend(id: id, name: name, avatar: imageData, birthday: calculateBirthday(selectedDate), daysUntilBirthday: calculateDaysUntilBirthday(from: selectedDate), turns: age, date: selectedDate)
+
     DatabaseService.shared.saveFriend(friend)
   }
 
@@ -188,8 +230,63 @@ private extension AddFriendView {
     }
     return 0
   }
+}
 
-  func hideKeyboard() {
-    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+
+struct CustomAlert: View {
+  @Binding var isPresented: Bool
+  let title: String
+  let message: String
+
+  var body: some View {
+    ZStack {
+      Color.clear
+        .edgesIgnoringSafeArea(.all)
+        .onTapGesture {
+          // Закрываем алерт при нажатии на задний фон
+          isPresented = false
+        }
+
+      VStack(spacing: 16) {
+        Text(title)
+          .font(.headline)
+          .padding(.top, 20)
+
+        Text(message)
+          .font(.body)
+          .multilineTextAlignment(.center)
+          .padding(.horizontal, 20)
+
+        Button(action: {
+          // Закрываем алерт при нажатии на кнопку
+          isPresented = false
+        }) {
+          Text("OK")
+            .font(.headline)
+            .foregroundColor(.white)
+            .padding(.vertical, 12)
+            .frame(maxWidth: .infinity)
+            .background(Color.green)
+            .cornerRadius(10)
+        }
+        .padding(.horizontal, 20)
+        .padding(.bottom, 20)
+      }
+      .frame(width: 280)
+      .background(Color.white)
+      .cornerRadius(20)
+      .shadow(radius: 10)
+      .opacity(isPresented ? 1 : 0) // Show or hide the alert based on isPresented
+      .scaleEffect(isPresented ? 1 : 0.5) // Scale the alert when presenting
+      .onAppear {
+        withAnimation(.spring()) { // Apply the spring animation
+          isPresented = true
+        }
+      }
+    }
   }
 }
+
+
+
+
