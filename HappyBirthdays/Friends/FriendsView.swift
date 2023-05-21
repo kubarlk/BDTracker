@@ -52,8 +52,6 @@ struct FriendsView: View {
         .cornerRadius(10)
         .padding()
       ScrollView(showsIndicators: false) {
-
-
           ForEach(groupedFriends.sorted(by: { $0.key < $1.key }), id: \.key) { month, friends in
             Section(header: Text(month).font(.headline)) {
               ForEach(friends.sorted(by: { $0.daysUntilBirthday < $1.daysUntilBirthday })) { friend in
@@ -65,7 +63,6 @@ struct FriendsView: View {
           Spacer()
         }
       }
-
       Button(action: {
         isAddViewShow.toggle()
       }) {
