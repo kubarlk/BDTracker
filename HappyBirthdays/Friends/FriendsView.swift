@@ -9,11 +9,11 @@ import SwiftUI
 import PhotosUI
 
 struct FriendsView: View {
+
   @State private var searchText = ""
   @State private var isAddViewShow = false
   @State private var shouldUpdateFriends = false
   @State private var isEditFriendViewPresented = false
-
   @State var friends: [Friend] = []
 
   init() {
