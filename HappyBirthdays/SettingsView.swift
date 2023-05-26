@@ -19,17 +19,14 @@ struct SettingsView: View {
             ScrollView {
                 VStack(spacing: 16) {
                     ButtonRowView(title: "Contacts", imageName: "person", color: .blue) {
-                    
-                    }
 
+                    }
                     ButtonRowView(title: "VK", imageName: "square.and.arrow.up", color: .blue) {
                         // Действие при нажатии на кнопку "VK"
                     }
-
                     ButtonRowView(title: "Facebook", imageName: "hand.thumbsup", color: .blue) {
                         // Действие при нажатии на кнопку "Facebook"
                     }
-
                     ButtonRowView(title: "Delete contacts", imageName: "trash", color: .red) {
                         // Действие при нажатии на кнопку "Delete contacts"
                     }
