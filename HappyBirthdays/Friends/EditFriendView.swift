@@ -9,11 +9,11 @@ import SwiftUI
 
 struct EditFriendView: View {
 
-
+  let friend: Friend
     var body: some View {
 
         VStack {
-          Text("Hello")
+          Text(friend.name)
         }
       
     }

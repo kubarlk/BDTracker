@@ -15,6 +15,7 @@
 		350C2EB82A17DAC100BD727D /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 350C2EB72A17DAC100BD727D /* Lottie */; };
 		350C2EBC2A17DBFF00BD727D /* person.json in Resources */ = {isa = PBXBuildFile; fileRef = 350C2EBB2A17DBFF00BD727D /* person.json */; };
 		350C2EBE2A17E61D00BD727D /* EditFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350C2EBD2A17E61D00BD727D /* EditFriendView.swift */; };
+		35843B4D2A20E127004E8CCC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35843B4C2A20E127004E8CCC /* SettingsView.swift */; };
 		35B1F72B2A0182CC00C94021 /* HappyBirthdaysApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1F72A2A0182CC00C94021 /* HappyBirthdaysApp.swift */; };
 		35B1F72F2A0182CE00C94021 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35B1F72E2A0182CE00C94021 /* Assets.xcassets */; };
 		35B1F7322A0182CE00C94021 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35B1F7312A0182CE00C94021 /* Preview Assets.xcassets */; };
@@ -36,6 +37,7 @@
 		350C2EB42A17DA9500BD727D /* LottieAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieAnimation.swift; sourceTree = "<group>"; };
 		350C2EBB2A17DBFF00BD727D /* person.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = person.json; path = ../../../../../../Downloads/person.json; sourceTree = "<group>"; };
 		350C2EBD2A17E61D00BD727D /* EditFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFriendView.swift; sourceTree = "<group>"; };
+		35843B4C2A20E127004E8CCC /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		35B1F7272A0182CC00C94021 /* HappyBirthdays.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HappyBirthdays.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35B1F72A2A0182CC00C94021 /* HappyBirthdaysApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HappyBirthdaysApp.swift; sourceTree = "<group>"; };
 		35B1F72E2A0182CE00C94021 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				35B1F72E2A0182CE00C94021 /* Assets.xcassets */,
 				35B1F7302A0182CE00C94021 /* Preview Content */,
 				350C2EB12A17CD0500BD727D /* Global.swift */,
+				35843B4C2A20E127004E8CCC /* SettingsView.swift */,
 			);
 			path = HappyBirthdays;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 				350C2EB52A17DA9500BD727D /* LottieAnimation.swift in Sources */,
 				350C2EB22A17CD0500BD727D /* Global.swift in Sources */,
 				35FAF6022A1164640093D969 /* AddFriendView.swift in Sources */,
+				35843B4D2A20E127004E8CCC /* SettingsView.swift in Sources */,
 				35FAF6072A1164C80093D969 /* Friend.swift in Sources */,
 				35FAF60C2A1165240093D969 /* DatabaseService.swift in Sources */,
 				35FAF6092A1164EA0093D969 /* ImagePicker.swift in Sources */,

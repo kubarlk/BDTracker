@@ -13,42 +13,49 @@ struct FriendCell: View {
   @State private var isEditFriendViewPresented = false
 
   var body: some View {
-    HStack {
-      Image(uiImage: UIImage(data: friend.avatar) ?? UIImage(named: "1")!)
+    VStack {
+      HStack {
+        Image(uiImage: UIImage(data: friend.avatar) ?? UIImage(named: "1")!)
           .resizable()
           .aspectRatio(contentMode: .fit)
           .frame(width: 80, height: 80)
           .clipShape(Circle())
-
-
-      VStack(alignment: .leading) {
-        Text(friend.name)
-          .font(.title)
-          .fontWeight(.bold)
-        Text("День рождения: \(friend.birthday)")
-          .font(.subheadline)
-        Text("Turns: \(friend.turns)")
-          .font(.caption)
-          .foregroundColor(.secondary)
+        
+        
+        VStack(alignment: .leading) {
+          Text(friend.name)
+            .font(.title)
+            .fontWeight(.bold)
+          Text("День рождения: \(friend.birthday)")
+            .font(.subheadline)
+          Text("Turns: \(friend.turns)")
+            .font(.caption)
+            .foregroundColor(.secondary)
+          Spacer()
+        }
+        .padding(.leading, 10)
+        
         Spacer()
+        
+        ZStack {
+          Circle()
+            .fill(friend.daysUntilBirthday > 10 ? Color.green : Color.red)
+            .frame(width: 30, height: 30)
+          Text("\(friend.daysUntilBirthday)")
+            .foregroundColor(.white)
+            .font(.caption)
+        }
+        
       }
-      .padding(.leading, 10)
-
-      Spacer()
-
-      ZStack {
-        Circle()
-          .fill(friend.daysUntilBirthday > 10 ? Color.green : Color.red)
-          .frame(width: 30, height: 30)
-        Text("\(friend.daysUntilBirthday)")
-          .foregroundColor(.white)
-          .font(.caption)
-      }
-
+      .padding()
+      .background(Color.gray.opacity(0.2))
+      .cornerRadius(10)
     }
-    .padding()
-    .background(Color.gray.opacity(0.2))
-    .cornerRadius(10)
-
+    .onTapGesture {
+      isEditFriendViewPresented.toggle()
+    }
+    .sheet(isPresented: $isEditFriendViewPresented) {
+      EditFriendView(friend: friend)
+    }
   }
 }

@@ -20,7 +20,7 @@ struct MainView: View {
       case .wishes:
         Text("Wishes View")
       case .settings:
-        Text("Settings View")
+        SettingsView()
       }
       Spacer()
       // Display the TabBar
