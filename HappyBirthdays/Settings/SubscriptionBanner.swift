@@ -51,8 +51,7 @@ struct SubscriptionBanner: View {
     .frame(height: 56)
     .padding(16)
     .sheet(isPresented: $showSubscriptionSheet) {
-      // Окно подписок
-      Text("Окно подписок")
+      SubscriptionView()
     }
     .onAppear {
         withAnimation(.spring()) {

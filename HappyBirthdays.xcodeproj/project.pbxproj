@@ -18,6 +18,7 @@
 		3581DB272A2CB9C300CFE84D /* SubscriptionBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3581DB262A2CB9C300CFE84D /* SubscriptionBanner.swift */; };
 		3581DB292A2CB9DC00CFE84D /* SocialSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3581DB282A2CB9DC00CFE84D /* SocialSection.swift */; };
 		3581DB2B2A2CB9EC00CFE84D /* SocialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3581DB2A2A2CB9EC00CFE84D /* SocialButton.swift */; };
+		3581DB2D2A2CBAAD00CFE84D /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3581DB2C2A2CBAAD00CFE84D /* SubscriptionView.swift */; };
 		35843B4D2A20E127004E8CCC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35843B4C2A20E127004E8CCC /* SettingsView.swift */; };
 		35B1F72B2A0182CC00C94021 /* HappyBirthdaysApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B1F72A2A0182CC00C94021 /* HappyBirthdaysApp.swift */; };
 		35B1F72F2A0182CE00C94021 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35B1F72E2A0182CE00C94021 /* Assets.xcassets */; };
@@ -43,6 +44,7 @@
 		3581DB262A2CB9C300CFE84D /* SubscriptionBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionBanner.swift; sourceTree = "<group>"; };
 		3581DB282A2CB9DC00CFE84D /* SocialSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialSection.swift; sourceTree = "<group>"; };
 		3581DB2A2A2CB9EC00CFE84D /* SocialButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialButton.swift; sourceTree = "<group>"; };
+		3581DB2C2A2CBAAD00CFE84D /* SubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
 		35843B4C2A20E127004E8CCC /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		35B1F7272A0182CC00C94021 /* HappyBirthdays.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HappyBirthdays.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35B1F72A2A0182CC00C94021 /* HappyBirthdaysApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HappyBirthdaysApp.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				3581DB262A2CB9C300CFE84D /* SubscriptionBanner.swift */,
 				3581DB282A2CB9DC00CFE84D /* SocialSection.swift */,
 				3581DB2A2A2CB9EC00CFE84D /* SocialButton.swift */,
+				3581DB2C2A2CBAAD00CFE84D /* SubscriptionView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				3581DB2B2A2CB9EC00CFE84D /* SocialButton.swift in Sources */,
 				35843B4D2A20E127004E8CCC /* SettingsView.swift in Sources */,
 				35FAF6072A1164C80093D969 /* Friend.swift in Sources */,
+				3581DB2D2A2CBAAD00CFE84D /* SubscriptionView.swift in Sources */,
 				35FAF60C2A1165240093D969 /* DatabaseService.swift in Sources */,
 				3581DB272A2CB9C300CFE84D /* SubscriptionBanner.swift in Sources */,
 				35FAF6092A1164EA0093D969 /* ImagePicker.swift in Sources */,
