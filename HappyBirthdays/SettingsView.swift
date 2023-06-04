@@ -6,66 +6,78 @@
 //
 
 import SwiftUI
+import Contacts
 
 struct SettingsView: View {
- 
-    var body: some View {
-        VStack {
-            Text("Настройки")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .padding()
+  var body: some View {
+    VStack {
+      Text("Настройки")
+        .font(.largeTitle)
+        .fontWeight(.bold)
+        .padding()
 
-            ScrollView {
-                VStack(spacing: 16) {
-                    ButtonRowView(title: "Contacts", imageName: "person", color: .blue) {
-
-                    }
-                    ButtonRowView(title: "VK", imageName: "square.and.arrow.up", color: .blue) {
-                        // Действие при нажатии на кнопку "VK"
-                    }
-                    ButtonRowView(title: "Facebook", imageName: "hand.thumbsup", color: .blue) {
-                        // Действие при нажатии на кнопку "Facebook"
-                    }
-                    ButtonRowView(title: "Delete contacts", imageName: "trash", color: .red) {
-                        // Действие при нажатии на кнопку "Delete contacts"
-                    }
-                }
-                .padding()
-            }
-        }
+      Button(action: {
+        fetchContactsAndSaveToDatabase()
+      }) {
+        Text("Сохранить друга")
+          .font(.headline)
+          .foregroundColor(.white)
+          .padding()
+          .background(Color.blue)
+          .cornerRadius(10)
+      }
+      .padding()
     }
+  }
 }
 
-struct ButtonRowView: View {
-    let title: String
-    let imageName: String
-    let color: Color
-    let action: () -> Void
+//MARK: Sync contacts from iPhone
+private extension SettingsView {
+   func fetchContactsAndSaveToDatabase() {
+      let store = CNContactStore()
+      store.requestAccess(for: .contacts) { granted, error in
+          guard granted else {
+              print("Access to contacts not granted.")
+              return
+          }
 
-    var body: some View {
-        Button(action: action) {
-            HStack {
-                Image(systemName: imageName)
-                    .foregroundColor(.white)
-                    .font(.title)
-                    .padding(.trailing, 8)
+          if let error = error {
+              print("Error requesting access to contacts: \(error.localizedDescription)")
+              return
+          }
 
-                Text(title)
-                    .font(.title)
-                    .fontWeight(.semibold)
-            }
-            .padding()
-            .frame(maxWidth: .infinity)
-            .background(color)
-            .foregroundColor(.white)
-            .cornerRadius(10)
-        }
-    }
+          let keysToFetch: [CNKeyDescriptor] = [CNContactFormatter.descriptorForRequiredKeys(for: .fullName),
+                                                CNContactBirthdayKey as CNKeyDescriptor]
+
+          DispatchQueue.global().async {
+              do {
+                  try store.enumerateContacts(with: CNContactFetchRequest(keysToFetch: keysToFetch)) { contact, stop in
+                      guard let fullName = CNContactFormatter.string(from: contact, style: .fullName) else {
+                          return
+                      }
+                      if let birthday = contact.birthday?.date {
+                          let dateFormatter = DateFormatter()
+                          dateFormatter.dateFormat = "dd.MM.yyyy"
+                          let birthdayString = dateFormatter.string(from: birthday)
+                          print("Full Name: \(fullName)")
+                          print("Birthday: \(birthdayString)")
+                          print("--------------------")
+                      }
+                  }
+              } catch {
+                  print("Error fetching contacts: \(error.localizedDescription)")
+              }
+          }
+      }
+  }
 }
+
+//MARK: Sync contacts from social media (VK, Facebook, etc.. )
+
 
 struct SettingsView_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingsView()
-    }
+  static var previews: some View {
+    SettingsView()
+  }
 }
+
