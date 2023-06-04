@@ -9,6 +9,8 @@ import SwiftUI
 import Contacts
 
 struct SettingsView: View {
+  @State private var buttonAnimation = false
+
   var body: some View {
     VStack {
       Text("Настройки")
@@ -16,17 +18,16 @@ struct SettingsView: View {
         .fontWeight(.bold)
         .padding()
 
-      Button(action: {
-        fetchContactsAndSaveToDatabase()
-      }) {
-        Text("Сохранить друга")
-          .font(.headline)
-          .foregroundColor(.white)
-          .padding()
-          .background(Color.blue)
-          .cornerRadius(10)
+      // Добавляем баннер подписок
+      SubscriptionBanner()
+        .padding(.top, 16)
+      
+      ScrollView(showsIndicators: false) {
+        SocialSection(buttonAnimation: $buttonAnimation)
       }
-      .padding()
+    }
+    .onAppear {
+      buttonAnimation.toggle()
     }
   }
 }
