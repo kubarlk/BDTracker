@@ -21,21 +21,25 @@ struct SocialSection: View {
                 Spacer()
             }
 
-            VStack(spacing: 16) {
+            VStack {
                 SocialButton(title: "Facebook", color: .green, buttonAnimation: $buttonAnimation, buttonTag: 1)
                     .animation(.easeInOut(duration: 0.5).delay(0.2))
+
 
                 SocialButton(title: "iPhone", color: .green, buttonAnimation: $buttonAnimation, buttonTag: 2)
                     .animation(.easeInOut(duration: 0.5).delay(0.4))
 
+
                 SocialButton(title: "VK", color: .green, buttonAnimation: $buttonAnimation, buttonTag: 3)
                     .animation(.easeInOut(duration: 0.5).delay(0.6))
+
             }
-            .padding()
+
             .background(
-                RoundedRectangle(cornerRadius: 16)
-                    .fill(Color.green.opacity(0.2))
-                    .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 5)
+              RoundedRectangle(cornerRadius: 15)
+                .stroke(Color.white.opacity(0.2), lineWidth: 1)
+                .background(Color.white.opacity(0.05))
+                .cornerRadius(15)
             )
             .opacity(buttonAnimation ? 1.0 : 0.0)
         }

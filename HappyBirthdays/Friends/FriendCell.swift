@@ -20,15 +20,14 @@ struct FriendCell: View {
           .aspectRatio(contentMode: .fit)
           .frame(width: 80, height: 80)
           .clipShape(Circle())
-        
-        
         VStack(alignment: .leading) {
           Text(friend.name)
-            .font(.title)
-            .fontWeight(.bold)
-          Text("День рождения: \(friend.birthday)")
+            .fontWeight(.semibold)
+          Spacer()
+          Text("\(friend.birthday)")
             .font(.subheadline)
-          Text("Turns: \(friend.turns)")
+          Spacer()
+          Text("Исполняется: \(friend.turns)")
             .font(.caption)
             .foregroundColor(.secondary)
           Spacer()
@@ -48,9 +47,13 @@ struct FriendCell: View {
         
       }
       .padding()
-      .background(Color.gray.opacity(0.2))
-      .cornerRadius(10)
     }
+    .background(
+      RoundedRectangle(cornerRadius: 15)
+        .stroke(Color.white.opacity(0.2), lineWidth: 1)
+        .background(Color.white.opacity(0.05))
+        .cornerRadius(15)
+    )
     .onTapGesture {
       isEditFriendViewPresented.toggle()
     }

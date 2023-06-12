@@ -10,12 +10,13 @@ import SwiftUI
 struct EditFriendView: View {
 
   let friend: Friend
-    var body: some View {
-
-        VStack {
-          Text(friend.name)
-        }
-      
+  var body: some View {
+    ZStack(alignment: .bottomTrailing) {
+      Image("3")
+        .resizable()
+        .edgesIgnoringSafeArea(.all)
     }
+
+  }
 }
 

@@ -14,7 +14,7 @@ struct SubscriptionBanner: View {
 
   var body: some View {
     ZStack {
-      LinearGradient(gradient: Gradient(colors: [Color.red, Color.purple]), startPoint: .leading, endPoint: .trailing)
+      LinearGradient(gradient: Gradient(colors: [Color.white.opacity(0.1), Color.white.opacity(0.2)]), startPoint: .topLeading, endPoint: .bottomTrailing)
         .cornerRadius(16)
         .scaleEffect(bannerAnimation ? 1.0 : 0.5)
         .animation(.spring())

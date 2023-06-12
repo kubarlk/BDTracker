@@ -15,6 +15,7 @@
 		350C2EB82A17DAC100BD727D /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 350C2EB72A17DAC100BD727D /* Lottie */; };
 		350C2EBC2A17DBFF00BD727D /* person.json in Resources */ = {isa = PBXBuildFile; fileRef = 350C2EBB2A17DBFF00BD727D /* person.json */; };
 		350C2EBE2A17E61D00BD727D /* EditFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350C2EBD2A17E61D00BD727D /* EditFriendView.swift */; };
+		354499972A37B96B007DCE5A /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354499962A37B96B007DCE5A /* CustomAlert.swift */; };
 		3581DB272A2CB9C300CFE84D /* SubscriptionBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3581DB262A2CB9C300CFE84D /* SubscriptionBanner.swift */; };
 		3581DB292A2CB9DC00CFE84D /* SocialSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3581DB282A2CB9DC00CFE84D /* SocialSection.swift */; };
 		3581DB2B2A2CB9EC00CFE84D /* SocialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3581DB2A2A2CB9EC00CFE84D /* SocialButton.swift */; };
@@ -42,6 +43,7 @@
 		350C2EB42A17DA9500BD727D /* LottieAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieAnimation.swift; sourceTree = "<group>"; };
 		350C2EBB2A17DBFF00BD727D /* person.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = person.json; path = ../../../../../../Downloads/person.json; sourceTree = "<group>"; };
 		350C2EBD2A17E61D00BD727D /* EditFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditFriendView.swift; sourceTree = "<group>"; };
+		354499962A37B96B007DCE5A /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		3581DB262A2CB9C300CFE84D /* SubscriptionBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionBanner.swift; sourceTree = "<group>"; };
 		3581DB282A2CB9DC00CFE84D /* SocialSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialSection.swift; sourceTree = "<group>"; };
 		3581DB2A2A2CB9EC00CFE84D /* SocialButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialButton.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 			children = (
 				35FAF6032A1164A50093D969 /* CustomDatePicker.swift */,
 				35FAF6082A1164EA0093D969 /* ImagePicker.swift */,
+				354499962A37B96B007DCE5A /* CustomAlert.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				350C2EB22A17CD0500BD727D /* Global.swift in Sources */,
 				35FAF6022A1164640093D969 /* AddFriendView.swift in Sources */,
 				3581DB2B2A2CB9EC00CFE84D /* SocialButton.swift in Sources */,
+				354499972A37B96B007DCE5A /* CustomAlert.swift in Sources */,
 				35843B4D2A20E127004E8CCC /* SettingsView.swift in Sources */,
 				35FAF6072A1164C80093D969 /* Friend.swift in Sources */,
 				35B910392A3388B1002B37FE /* TimeLineView.swift in Sources */,

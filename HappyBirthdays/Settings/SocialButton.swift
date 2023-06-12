@@ -23,9 +23,10 @@ struct SocialButton: View {
                 .frame(maxWidth: .infinity)
                 .padding()
                 .background(
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(color)
-                        .shadow(color: color, radius: 10, x: 0, y: 5)
+                  RoundedRectangle(cornerRadius: 15)
+                    .stroke(Color.white.opacity(0.2), lineWidth: 1)
+                    .background(Color.white.opacity(0.05))
+                    .cornerRadius(15)
                 )
                 .opacity(buttonAnimation ? 1.0 : 0.0)
         }

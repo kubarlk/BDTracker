@@ -12,22 +12,27 @@ struct SettingsView: View {
   @State private var buttonAnimation = false
 
   var body: some View {
-    VStack {
-      Text("Настройки")
-        .font(.largeTitle)
-        .fontWeight(.bold)
-        .padding()
+    ZStack(alignment: .bottomTrailing) {
+      Image("3")
+        .resizable()
+        .edgesIgnoringSafeArea(.all)
+      VStack {
+        Text("Настройки")
+          .font(.largeTitle)
+          .fontWeight(.bold)
+          .padding()
 
-      // Добавляем баннер подписок
-      SubscriptionBanner()
-        .padding(.top, 16)
-      
-      ScrollView(showsIndicators: false) {
-        SocialSection(buttonAnimation: $buttonAnimation)
+        // Добавляем баннер подписок
+        SubscriptionBanner()
+          .padding(.top, 16)
+
+        ScrollView(showsIndicators: false) {
+          SocialSection(buttonAnimation: $buttonAnimation)
+        }
       }
-    }
-    .onAppear {
-      buttonAnimation.toggle()
+      .onAppear {
+        buttonAnimation.toggle()
+      }
     }
   }
 }

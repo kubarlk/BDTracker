@@ -14,6 +14,7 @@ struct FriendsView: View {
     @State private var shouldUpdateFriends = false
     @State private var isEditFriendViewPresented = false
     @State private var isCustomRectangleVisible = false
+    @State private var isSearchBarVisible = false
     @State var friends: [Friend] = []
 
 
@@ -40,20 +41,35 @@ struct FriendsView: View {
 
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
-            VStack {
-                Text("Ваши друзья")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .padding()
-
-                HStack {
-                    TextField("Поиск по имени", text: $searchText)
+          Image("3")
+            .resizable()
+                  .edgesIgnoringSafeArea(.all)
+          VStack{
+            HStack {
+                    Spacer()
+                    Text("Ваши друзья")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
                         .padding()
+                    Button {
+                        self.isSearchBarVisible.toggle()
+                    } label: {
+                        Image(systemName: "magnifyingglass")
+                            .resizable()
+                            .frame(width: 24, height: 24)
+                            .foregroundColor(Color.black)
+                    }
+                    Spacer()
                 }
-                .background(Color.gray.opacity(0.2))
-                .cornerRadius(10)
-                .padding()
-
+              if isSearchBarVisible {
+                  HStack {
+                      TextField("Поиск по имени", text: $searchText)
+                          .padding()
+                  }
+                  .background(Color.gray.opacity(0.2))
+                  .cornerRadius(10)
+                  .padding(.horizontal, 16)
+              }
                 ScrollView(showsIndicators: false) {
                     VStack {
                         ForEach(groupedFriends, id: \.0) { month, friends in
@@ -74,7 +90,7 @@ struct FriendsView: View {
                                         .padding(.bottom)
                                         .padding(.top, 16)
                                     }
-                                    Spacer()
+
                                 }
                             }
                         }
