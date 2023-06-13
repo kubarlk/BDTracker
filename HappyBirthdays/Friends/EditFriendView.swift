@@ -15,6 +15,11 @@ struct EditFriendView: View {
       Image("3")
         .resizable()
         .edgesIgnoringSafeArea(.all)
+      VStack {
+        Text(friend.name)
+          .foregroundColor(.white)
+          .font(.caption)
+      }
     }
 
   }

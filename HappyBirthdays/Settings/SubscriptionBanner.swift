@@ -15,23 +15,22 @@ struct SubscriptionBanner: View {
   var body: some View {
     ZStack {
       LinearGradient(gradient: Gradient(colors: [Color.white.opacity(0.1), Color.white.opacity(0.2)]), startPoint: .topLeading, endPoint: .bottomTrailing)
-        .cornerRadius(16)
-        .scaleEffect(bannerAnimation ? 1.0 : 0.5)
-        .animation(.spring())
-        .onTapGesture {
-          showSubscriptionSheet.toggle()
-        }
-        .opacity(bannerAnimation ? 1 : 0)
+          .cornerRadius(16)
+          .scaleEffect(bannerAnimation ? 1.0 : 0.5)
+
+
+          .opacity(bannerAnimation ? 1 : 0)
 
       HStack {
         Image("1")
-          .resizable()
-          .frame(width: 56, height: 56)
-          .foregroundColor(.white)
-          .cornerRadius(8)
-          .opacity(imageAnimation ? 1 : 0)
-          .scaleEffect(imageAnimation ? 1 : 0.5)
-          .animation(.spring())
+            .resizable()
+            .frame(width: 56, height: 56)
+            .foregroundColor(.white)
+            .cornerRadius(8)
+            .opacity(imageAnimation ? 1 : 0)
+            .scaleEffect(imageAnimation ? 1 : 0.5)
+            .animation(.spring(), value: imageAnimation)
+
 
         VStack(alignment: .leading) {
           Text("Получить премиум")
@@ -47,6 +46,11 @@ struct SubscriptionBanner: View {
         Spacer()
       }
       .padding(8)
+    }
+    .onTapGesture {
+        withAnimation {
+            showSubscriptionSheet.toggle()
+        }
     }
     .frame(height: 56)
     .padding(16)

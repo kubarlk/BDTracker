@@ -24,22 +24,24 @@ struct SubscriptionView: View {
                 .foregroundColor(.green)
                 .padding(.top, 30)
 
-            Image(systemName: "newspaper")
-                .font(.system(size: 100))
-                .foregroundColor(.green)
-                .scaleEffect(isSubscribing ? 1.2 : 1.0)
-                .animation(.spring())
+          Image(systemName: "newspaper")
+              .font(.system(size: 100))
+              .foregroundColor(.green)
+              .scaleEffect(isSubscribing ? 1.2 : 1.0)
+              .animation(.spring(), value: isSubscribing)
+
 
             Text("Получите доступ к эксклюзивному контенту и преимуществам подписки.")
                 .multilineTextAlignment(.center)
                 .foregroundColor(.green)
 
-            ForEach(subscriptionPlans) { plan in
-                SubscriptionPlanView(plan: plan, isSelected: plan == selectedPlan) {
-                    selectedPlan = plan
-                }
-                .animation(.spring())
-            }
+          ForEach(subscriptionPlans) { plan in
+              SubscriptionPlanView(plan: plan, isSelected: plan == selectedPlan) {
+                  selectedPlan = plan
+              }
+              .animation(.spring(), value: selectedPlan)
+          }
+
 
             Button(action: {
                 isSubscribing.toggle()

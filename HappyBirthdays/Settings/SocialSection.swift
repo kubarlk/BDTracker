@@ -21,19 +21,16 @@ struct SocialSection: View {
                 Spacer()
             }
 
-            VStack {
-                SocialButton(title: "Facebook", color: .green, buttonAnimation: $buttonAnimation, buttonTag: 1)
-                    .animation(.easeInOut(duration: 0.5).delay(0.2))
+          VStack {
+              SocialButton(title: "Facebook", color: .green, buttonAnimation: $buttonAnimation, buttonTag: 1)
+                  .animation(.easeInOut(duration: 0.5).delay(0.2), value: buttonAnimation)
 
+              SocialButton(title: "iPhone", color: .green, buttonAnimation: $buttonAnimation, buttonTag: 2)
+                  .animation(.easeInOut(duration: 0.5).delay(0.4), value: buttonAnimation)
 
-                SocialButton(title: "iPhone", color: .green, buttonAnimation: $buttonAnimation, buttonTag: 2)
-                    .animation(.easeInOut(duration: 0.5).delay(0.4))
-
-
-                SocialButton(title: "VK", color: .green, buttonAnimation: $buttonAnimation, buttonTag: 3)
-                    .animation(.easeInOut(duration: 0.5).delay(0.6))
-
-            }
+              SocialButton(title: "VK", color: .green, buttonAnimation: $buttonAnimation, buttonTag: 3)
+                  .animation(.easeInOut(duration: 0.5).delay(0.6), value: buttonAnimation)
+          }
 
             .background(
               RoundedRectangle(cornerRadius: 15)
