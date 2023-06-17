@@ -12,7 +12,6 @@ struct MainView: View {
 
   var body: some View {
     VStack(spacing: 0) {
-      // Display the main view based on the selected tab
       switch selectedTab {
       case .contacts:
         FriendsView()
@@ -23,10 +22,9 @@ struct MainView: View {
         SettingsView()
       }
       Spacer()
-      // Display the TabBar
       TabBar(selectedTab: $selectedTab)
     }
-    .ignoresSafeArea(.keyboard) // Игнорировать клавиатуру на всем экране
+    .ignoresSafeArea(.keyboard)
   }
 }
 
